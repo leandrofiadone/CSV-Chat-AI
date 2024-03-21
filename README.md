@@ -1,4 +1,4 @@
-#  Descripción  (Español 🇪🇸)
+#  Descripción 🇪🇸
 Este repositorio contiene una aplicación para configurar un pipeline de procesamiento de lenguaje natural (NLP) utilizando la biblioteca LangChain.
 
 ### Uso
@@ -10,7 +10,9 @@ La función `setupCSVLangChain()` configura la cadena de procesamiento de lengua
 
 Este proyecto está bajo la [Licencia MIT](LICENSE).
 
-# Description (English 🇬🇧)
+---
+
+# Description 🇬🇧
 This repository contains an application to set up a natural language processing (NLP) pipeline using the LangChain library.
 
 ### Usage
