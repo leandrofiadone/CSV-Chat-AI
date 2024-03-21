@@ -1,5 +1,5 @@
 #  Descripción 🇪🇸
-### Este repositorio contiene una aplicación para configurar un pipeline de procesamiento de lenguaje natural (NLP) utilizando la biblioteca LangChain.
+### Este repositorio contiene una aplicación que facilita el procesamiento de texto utilizando LangChain, especialmente útil para trabajar con archivos CSV.
 
 ## Uso
 La aplicación carga un archivo CSV, divide los documentos en fragmentos más pequeños, configura vectores de incrustación utilizando OpenAI, crea un almacén de vectores utilizando el algoritmo HNSWLib, configura un modelo de lenguaje de OpenAI y finalmente establece una cadena de procesamiento de preguntas y respuestas.
