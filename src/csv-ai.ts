@@ -11,20 +11,19 @@ dotenv.config()
 
 // Configura y prepara la cadena de procesamiento de lenguaje natural (NLP) para trabajar con un archivo CSV
 export async function setupCSVLangChain() {
-    // Carga el archivo CSV desde el directorio src/documents/prueba1.csv
-    const loader = new CSVLoader("src/documents/prueba1.csv")
-
-    // Carga los documentos del archivo CSV
-    const docs = await loader.load()
+  // Carga el archivo CSV desde el directorio src/documents/prueba1.csv
+  // Carga los documentos del archivo CSV
+    const loader = new CSVLoader("src/documents/TiendaPrueba.csv")
+    const docsCSV = await loader.load()
 
     // Configura el separador de texto para dividir los documentos en fragmentos más pequeños
+    // Divide los documentos en fragmentos más pequeños
     const splitter = new RecursiveCharacterTextSplitter({
         chunkSize: 1000,
         chunkOverlap: 200
     })
-
-    // Divide los documentos en fragmentos más pequeños
-    const splittedDocs = await splitter.splitDocuments(docs)
+    
+    const splittedDocs = await splitter.splitDocuments(docsCSV)
 
     // Configura los vectores de incrustación utilizando el servicio de OpenAI
     const embeddings = new OpenAIEmbeddings({
@@ -33,21 +32,28 @@ export async function setupCSVLangChain() {
 
     // Crea un almacén de vectores utilizando el algoritmo HNSWLib y los documentos divididos
     const vectorStore = await HNSWLib.fromDocuments(splittedDocs, embeddings)
-
+    //Hierarchical Navigable Small World, Mundo Pequeño Navegable Jerárquico
+    // un algoritmo que crea una estructura jerárquica
+    //que permite la navegación eficiente en un espacio de datos, manteniendo conexiones cortas entre los elementos.
     // Configura el modelo de lenguaje de OpenAI
+
+    // Convierte el almacén de vectores en un recuperador de vectores.. herramienta de busqueda dentro del vectorstore creo
+    //  Este objeto nos permite buscar vectores en el almacén que creamos anteriormente. Es como tener una llave que nos permite abrir una caja y sacar lo que necesitamos.
+    const vectorStoreRetriever = vectorStore.asRetriever()
+
+
+
     const model = new OpenAI({
         modelName: "gpt-3.5-turbo"
     })
 
-    // Convierte el almacén de vectores en un recuperador de vectores
-    const vectorStoreRetriever = vectorStore.asRetriever()
 
     // Crea una cadena de procesamiento de preguntas y respuestas utilizando el modelo de lenguaje y el recuperador de vectores
     const chain = RetrievalQAChain.fromLLM(model, vectorStoreRetriever)
 
     // Devuelve la cadena de procesamiento de preguntas y respuestas y el almacén de vectores configurados
     return {chain, vectorStore}
-    }
+}
 
     // Realiza una pregunta a la cadena de procesamiento de preguntas y respuestas y muestra la pregunta y la respuesta
     export async function askQuestion(chain: any, question: string) {
