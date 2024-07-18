@@ -1,23 +1,36 @@
-#  Descripción 🇪🇸
-### Este repositorio contiene una aplicación que facilita el procesamiento de texto utilizando LangChain, especialmente útil para trabajar con archivos CSV.
+# CSV-Chat-AI 🤖📊
 
-## Uso
-La aplicación carga un archivo CSV, divide los documentos en fragmentos más pequeños, configura vectores de incrustación utilizando OpenAI, crea un almacén de vectores utilizando el algoritmo HNSWLib, configura un modelo de lenguaje de OpenAI y finalmente establece una cadena de procesamiento de preguntas y respuestas.
+## Description
 
-La función `setupCSVLangChain()` configura la cadena de procesamiento de lenguaje natural y devuelve la cadena configurada junto con el almacén de vectores. Puedes utilizar la función `askQuestion(chain, question)` para hacer preguntas a la cadena de procesamiento de preguntas y respuestas.
+"CSV-Chat-AI" is an application that allows you to interact with CSV data using AI-powered chat. 💬🤖
 
-### Licencia
+## Features
 
-Este proyecto está bajo la [Licencia MIT](LICENSE).
-
----
-
-# Description 🇬🇧
-### This repository contains an application to set up a natural language processing (NLP) pipeline using the LangChain library.
+- Import and analyze CSV files easily 📂
+- Interact with your data using natural language queries 🗣️
+- Get insights and summaries from your data instantly ⚡
 
 ## Usage
-The application loads a CSV file, divides the documents into smaller fragments, sets up embedding vectors using OpenAI, creates a vector store using the HNSWLib algorithm, configures an OpenAI language model, and finally sets up a question-answering processing chain.
-The `setupCSVLangChain()` function configures the natural language processing chain and returns the configured chain along with the vector store. You can use the `askQuestion(chain, question)` function to ask questions to the question-answering processing chain.
 
-### License 
-This project is licensed under the [MIT License](LICENSE).
+Upload a CSV file and start interacting with your data through the chat interface. Ask questions and get insights from your data quickly and easily.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. 🌟
+
+1. Fork the Project 🍴
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`) 🌟
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`) 📝
+4. Push to the Branch (`git push origin feature/AmazingFeature`) 🚀
+5. Open a Pull Request 🔄
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information. 📄
+
+## Contact
+
+Leandro Fiadone - [leandrofiadone@gmail.com](mailto:leandrofiadone@gmail.com)
+
+Project Link: [https://github.com/leandrofiadone/CSV-Chat-AI](https://github.com/leandrofiadone/CSV-Chat-AI)
+
